@@ -35,6 +35,10 @@ const Shop = () => {
      window.scrollTo(0, 0);
    }, []);
 
+   const scrollToTop = () => {
+    window.scrollTo(0, 0);
+   }
+
   return (
     <>
       <div className='h-[calc(100vh - 750px)]'>
@@ -327,7 +331,9 @@ const Shop = () => {
                 <div className='flex rounded-md mt-8'>
                   {currentPage > 1 && (
                     <span
-                      onClick={handlePrev}
+                      onClick={()=>{
+                      handlePrev()
+                      scrollToTop();}}
                       className='h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center mr-3 cursor-pointer'
                     >
                       <FaArrowLeft /> Prev
@@ -340,7 +346,8 @@ const Shop = () => {
                     return (
                       <button
                         key={page}
-                        onClick={() => handlePageChange(page)}
+                        onClick={() => {handlePageChange(page) 
+                          scrollToTop()}}
                         className={`${
                           page === parseInt(currentPage) && "bg-blue-800"
                         } h-10 w-10 hover:bg-blue-600 font-semibold text-sm flex items-center justify-center`}
@@ -352,7 +359,9 @@ const Shop = () => {
                   {currentPage < totalPages && (
                     <span
                       className='h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3 cursor-pointer'
-                      onClick={handleNext}
+                      onClick={()=>{
+                      handleNext()
+                      scrollToTop()}}
                     >
                       Next <FaArrowRight />
                     </span>

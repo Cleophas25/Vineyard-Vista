@@ -59,7 +59,7 @@ const Products = () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(
-          `http://localhost:3000/api/v1/products`,
+          `https://vineyard-vista.onrender.com/api/v1/products`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }

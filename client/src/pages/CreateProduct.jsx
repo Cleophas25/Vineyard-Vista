@@ -12,6 +12,7 @@ export default function CreateProduct() {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(null);
   const [files, setFiles] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate();
 
@@ -56,6 +57,7 @@ export default function CreateProduct() {
     ) {
       toast.error("Please Enter All Values");
     }
+    setIsLoading(true)
     try {
       const response = await axios.post(
         "https://vineyard-vista.onrender.com/api/v1/products",
@@ -73,12 +75,13 @@ export default function CreateProduct() {
           },
         }
       );
+      setIsLoading(false)
       toast.success("Prouct Created");
       setTimeout(() => {
         navigate("/Admindashboard/products");
       }, 3000);
     } catch (error) {
-      console.log(error.response)
+      setIsLoading(false);
       toast.error(error.message)
     }
   }
@@ -138,8 +141,13 @@ export default function CreateProduct() {
           className='w-full py-2 px-3 rounded-md border border-gray-300 focus:outline-none mb-4'
           required
         />
-        <button className='cursor-pointer text-white bg-black border-transparent rounded-md tracking-wider py-1 p-3 shadow-sm transition-all ease-in-out capitalize inline-block w-full hover:bg-gray-900 hover:shadow-lg mt-4'>
-          Create Product
+        <button
+          className={`${
+            isLoading ? "bg-gray-200 text-black" : "bg-black text-white"
+          } cursor-pointer border-transparent rounded-md tracking-wider py-1 p-3 shadow-sm transition-all ease-in-out capitalize inline-block w-full hover:bg-gray-900 hover:shadow-lg mt-4`}
+          disabled={isLoading}
+        >
+          {isLoading ? "Creating, please wait..." : "Create Product"}
         </button>
       </form>
     </div>

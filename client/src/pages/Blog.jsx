@@ -72,7 +72,7 @@ const Blog = () => {
             posts.map((post) => <Post key={post._id} post={post} />)
           ) : (
             <div className='flex items-center w-full'>
-              <p></p>
+              <p>No Posts</p>
             </div>
           )}
           <div className='flex justify-center'>

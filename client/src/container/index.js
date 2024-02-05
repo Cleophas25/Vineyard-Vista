@@ -1,6 +1,6 @@
 import AboutUs from './AboutUs/AboutUs.jsx';
 import Ceo from './Ceo/Ceo.jsx';
-import FindUs from './FindUs/FindUs.jsx';
+import FindUs from './Findus/FindUs.jsx';
 import Footer from './Footer/Footer.jsx';
 import Gallery from './Gallery/Gallery.jsx';
 import Header from './Header/Header.jx';

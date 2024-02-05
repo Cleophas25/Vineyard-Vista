@@ -19,7 +19,7 @@ const app = express();
 
 const port = 3000;
 
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors());
 app.use(cookieParser());
 
 app.use(express.json({ limit: "50mb" }));

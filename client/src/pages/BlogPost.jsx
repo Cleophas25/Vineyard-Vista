@@ -57,7 +57,7 @@ const BlogPost = () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
         const result = await axios.get(
-          `http://localhost:3000/api/v1/posts/${id}`
+          `https://vineyard-vista.onrender.com/api/v1/posts/${id}`
         );
         dispatch({ type: "FETCH_SUCCESS", payload: result.data.post });
       } catch (err) {
@@ -76,7 +76,7 @@ const BlogPost = () => {
     try {
       e.preventDefault();
       const { data } = await axios.post(
-        `http://localhost:3000/api/v1/posts/comment/${post._id}`,
+        `https://vineyard-vista.onrender.com/api/v1/posts/comment/${post._id}`,
         {
           name: name,
           comment: comment,
@@ -94,7 +94,7 @@ const BlogPost = () => {
   const handleDeleteComment = async(id) => {
     try {
       await axios.delete(
-        `http://localhost:3000/api/v1/posts/comment/${id}/${post._id}`
+        `https://vineyard-vista.onrender.com/api/v1/posts/comment/${id}/${post._id}`
       );
        dispatch({ type: "IS_CHANGED" });
       toast.success('Comment Deleted')

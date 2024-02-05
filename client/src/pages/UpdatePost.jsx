@@ -31,7 +31,7 @@ export default function UpdatePost() {
     const getPost = async () => {
       try {
         const result = await axios.get(
-          `http://localhost:3000/api/v1/posts/${id}`
+          `https://vineyard-vista.onrender.com/api/v1/posts/${id}`
         );
         const { title, summary, content } =
           result.data.post;
@@ -73,7 +73,7 @@ export default function UpdatePost() {
       }
       setIsLoading(true)
       const response = await axios.put(
-        `http://localhost:3000/api/v1/posts/${id}`,
+        `https://vineyard-vista.onrender.com/api/v1/posts/${id}`,
         {
           title: title,
           summary: summary,

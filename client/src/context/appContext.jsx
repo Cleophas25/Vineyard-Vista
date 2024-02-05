@@ -65,7 +65,7 @@ const AppProvider = ({ children }) => {
 
   // axios
   const authFetch = axios.create({
-    baseURL: "http://localhost:3000/api/v1",
+    baseURL: "https://vineyard-vista.onrender.com/api/v1",
   });
 
   authFetch.interceptors.response.use(
@@ -84,7 +84,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SETUP_USER_BEGIN });
     try {
       const result = await axios.post(
-        `http://localhost:3000/api/v1/auth/${endPoint}`,
+        `https://vineyard-vista.onrender.com/api/v1/auth/${endPoint}`,
         currentUser
       );
       const { user } = result.data;
@@ -112,7 +112,9 @@ const AppProvider = ({ children }) => {
   };
 
   const logoutUser = async () => {
-    await authFetch.get(`http://localhost:3000/api/v1/auth/logout`);
+    await authFetch.get(
+      `https://vineyard-vista.onrender.com/api/v1/auth/logout`
+    );
     dispatch({ type: LOGOUT_USER });
     localStorage.removeItem('user')
      localStorage.removeItem("shippingAddress");
@@ -121,7 +123,7 @@ const AppProvider = ({ children }) => {
   const getAllProducts = async () => {
     const { currentPage, selectedCategory, searchTerm } = state;
 
-    let url = `http://localhost:3000/api/v1/products?page=${currentPage}`;
+    let url = `https://vineyard-vista.onrender.com/api/v1/products?page=${currentPage}`;
 
     if(selectedCategory && selectedCategory !== 'all'){
       url = url + `&category=${selectedCategory}`;

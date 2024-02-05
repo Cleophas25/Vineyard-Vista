@@ -50,7 +50,9 @@ const Posts = () => {
      const getPosts = async () => {
        try {
          dispatch({ type: "FETCH_REQUEST" });
-         const { data } = await axios("http://localhost:3000/api/v1/posts");
+         const { data } = await axios(
+           "https://vineyard-vista.onrender.com/api/v1/posts"
+         );
          dispatch({ type: "FETCH_SUCCESS", payload: data.posts });
        } catch (err) {
          dispatch({ type: "FETCH_FAIL", payload: getError(err) });
@@ -70,7 +72,7 @@ const Posts = () => {
     if (confirm) {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/v1/posts/${id}`,
+          `https://vineyard-vista.onrender.com/api/v1/posts/${id}`,
           {
             method: "DELETE",
             headers: {

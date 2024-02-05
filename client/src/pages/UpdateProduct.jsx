@@ -20,8 +20,8 @@ export default function UpdateProduct() {
     const getProduct = async() => {
       try {
            const result = await axios.get(
-          `http://localhost:3000/api/v1/products/${id}`
-        );
+             `https://vineyard-vista.onrender.com/api/v1/products/${id}`
+           );
         const { productName, price, category, countInStock, description } = result.data
         setProductName(productName)
          setDescription(description)
@@ -85,7 +85,7 @@ export default function UpdateProduct() {
 
     setIsLoading(true)
     const response = await axios.put(
-      `http://localhost:3000/api/v1/products/${id}`,
+      `https://vineyard-vista.onrender.com/api/v1/products/${id}`,
       {
         productName: productName,
         description: description,

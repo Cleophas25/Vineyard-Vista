@@ -38,7 +38,7 @@ const ProductPage = () => {
       dispatch({type: 'FETCH_REQUEST'})
       try {
         const result = await axios.get(
-          `http://localhost:3000/api/v1/products/${id}`
+          `https://vineyard-vista.onrender.com/api/v1/products/${id}`
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data })
       } catch (err) {

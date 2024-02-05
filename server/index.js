@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/products", productRouter);
+app.use("/aproductspi/v1/", productRouter);
 app.use("/api/v1/posts", postRouter);
 app.use("/api/v1/orders", orderRouter);
 

@@ -59,7 +59,7 @@ const Products = () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(
-          `http://localhost:3000/api/v1/products`,
+          `https://vineyard-vista.onrender.com/api/v1/products`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }
@@ -83,9 +83,12 @@ const deleteProduct = async (id) => {
   if (window.confirm("Are you sure to delete?")) {
     try {
       dispatch({ type: "DELETE_REQUEST" });
-      await axios.delete(`http://localhost:3000/api/v1/products/${id}`, {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
+      await axios.delete(
+        `https://vineyard-vista.onrender.com/api/v1/products/${id}`,
+        {
+          headers: { Authorization: `Bearer ${user.token}` },
+        }
+      );
       toast.success("order deleted successfully");
       dispatch({ type: "DELETE_SUCCESS" });
     } catch (err) {

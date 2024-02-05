@@ -60,7 +60,7 @@ const Stats = () => {
     const fetchStats = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:3000/api/v1/posts/adminStats`,
+          `https://vineyard-vista.onrender.com/api/v1/posts/adminStats`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }

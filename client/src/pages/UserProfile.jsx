@@ -56,7 +56,7 @@ const UserProfile = () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
         const { data } = await axios.get(
-          `http://localhost:3000/api/v1/orders/mine`,
+          `https://vineyard-vista.onrender.com/api/v1/orders/mine`,
 
           { headers: { Authorization: `Bearer ${user?.token}` } }
         );

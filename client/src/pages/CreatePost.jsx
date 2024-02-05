@@ -53,7 +53,7 @@ export default function CreatePost() {
       setIsLoading(true)
        
        const response = await axios.post(
-         "http://localhost:3000/api/v1/posts",
+         "https://vineyard-vista.onrender.com/api/v1/posts",
          {
            title: title,
            summary: summary,

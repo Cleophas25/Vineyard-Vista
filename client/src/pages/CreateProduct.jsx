@@ -58,7 +58,7 @@ export default function CreateProduct() {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/products",
+        "https://vineyard-vista.onrender.com/api/v1/products",
         {
           productName: productName,
           description: description,

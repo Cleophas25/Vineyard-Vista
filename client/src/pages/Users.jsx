@@ -59,9 +59,12 @@ const Users = () => {
      const fetchData = async () => {
        try {
          dispatch({ type: "FETCH_REQUEST" });
-         const { data } = await axios.get(`http://localhost:3000/api/v1/auth`, {
-           headers: { Authorization: `Bearer ${user.token}` },
-         });
+         const { data } = await axios.get(
+           `https://vineyard-vista.onrender.com/api/v1/auth`,
+           {
+             headers: { Authorization: `Bearer ${user.token}` },
+           }
+         );
          dispatch({ type: "FETCH_SUCCESS", payload: data });
        } catch (err) {
          dispatch({
@@ -81,9 +84,12 @@ const Users = () => {
      if (window.confirm("Are you sure to delete?")) {
        try {
          dispatch({ type: "DELETE_REQUEST" });
-         await axios.delete(`http://localhost:3000/api/v1/auth/${user._id}`, {
-           headers: { Authorization: `Bearer ${user.token}` },
-         });
+         await axios.delete(
+           `https://vineyard-vista.onrender.com/api/v1/auth/${user._id}`,
+           {
+             headers: { Authorization: `Bearer ${user.token}` },
+           }
+         );
          toast.success("user deleted successfully");
          dispatch({ type: "DELETE_SUCCESS" });
        } catch (error) {

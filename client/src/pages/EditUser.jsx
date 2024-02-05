@@ -44,7 +44,7 @@ export default function EditUser() {
       try {
         dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(
-          `http://localhost:3000/api/v1/auth/${userId}`,
+          `https://vineyard-vista.onrender.com/api/v1/auth/${userId}`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }
@@ -68,7 +68,7 @@ export default function EditUser() {
     try {
       dispatch({ type: "UPDATE_REQUEST" });
       await axios.put(
-        `http://localhost:3000/api/v1/auth/${userId}`,
+        `https://vineyard-vista.onrender.com/api/v1/auth/${userId}`,
         { _id: userId, name, email, isAdmin },
         {
           headers: { Authorization: `Bearer ${user.token}` },

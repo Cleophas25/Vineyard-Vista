@@ -3,6 +3,7 @@ const { Schema, model } = mongoose;
 // import validator from 'validator'
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+dotenv.config();
 
 const UserSchema = new Schema({
   name: {

@@ -52,7 +52,9 @@ const OrderPage = () => {
     const getOrderDetail = async () => {
       try {
         dispatch({type: 'FETCH_REQUEST'})
-        const res = await axios(`http://localhost:3000/api/v1/orders/${id}`);
+        const res = await axios(
+          `https://vineyard-vista.onrender.com/api/v1/orders/${id}`
+        );
 
         dispatch({ type: "FETCH_SUCCESS", payload: res.data });
       } catch (error) {

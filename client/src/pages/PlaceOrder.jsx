@@ -47,7 +47,7 @@ const PlaceOrder = () => {
       dispatch({ type: 'CREATE_REQUEST' });
 
       const { data } = await axios.post(
-        "http://localhost:3000/api/v1/orders",
+        "https://vineyard-vista.onrender.com/api/v1/orders",
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.address,

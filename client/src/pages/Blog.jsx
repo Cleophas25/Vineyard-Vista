@@ -19,7 +19,9 @@ const Blog = () => {
     const getPosts = async () => {
       setIsLoading(false);
       try {
-        const result = await axios(`http://localhost:3000/api/v1/posts?page=${currentPage}`);
+        const result = await axios(
+          `https://vineyard-vista.onrender.com/api/v1/posts?page=${currentPage}`
+        );
         setPosts(result.data.posts);
         console.log(result)
         setTotalPages(result.data.numOfPage);

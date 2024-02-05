@@ -1,6 +1,6 @@
 import Posts from "../models/blogPost.js";
 import Order from "../models/order.js";
-import User from "../models/User.js";
+import User from "../models/user.js";
 import Comments from "../models/blogComments.js";
 import Views from "../models/blogViews.js";
 import expressAsyncHandler from "express-async-handler";

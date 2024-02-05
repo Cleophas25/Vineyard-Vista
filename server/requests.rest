@@ -1,0 +1,225 @@
+### GET PRODUCTS 
+GET http://localhost:3000/api/v1/products?limit=100
+
+### GET PRODUCTS WITH PARAMS
+GET http://localhost:3000/api/v1/products?category=gin&limit=2
+
+### Get Single product
+GET http://localhost:3000/api/v1/products/fish
+
+
+### create Product
+POST http://localhost:3000/api/v1/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NThjZmY5Yjk3ODViYjlkYmE3ZTg1NWEiLCJpYXQiOjE3MDM3NzgxMzEsImV4cCI6MTcwNjM3MDEzMX0.8qFd0geHH6Olt6W8GrREpf1huBhGnU6W9XFZLFWqNe0
+Content-Type: application/json
+
+{
+    "name": "Mango Wine",
+    "slug": "mango-wine",
+    "imgUrl": "/images/wine-1.png",
+    "category": "wine",
+    "price": 80,
+    "countInStock": 30,
+    "rating": 4.7,
+    "numReviews": 10,
+    "description": "high quality mango wine"
+}
+
+### DELETE PRODUCT
+DELETE  http://localhost:3000/api/v1/products/654c8baa8b47c098cb186ff7
+
+### UPDATE PRODUCT
+PUT  http://localhost:3000/api/v1/products/6595d49a5047f3a127e39b66
+Content-Type: application/json
+
+{
+    "productName": "Red Wine",
+    "slug": "champaign-wine",
+    "description": "high quality champaign wine"
+}
+
+// USER LOGIN AND AUTHENTICATION
+
+### Register User
+POST http://localhost:3000/api/v1/auth/register
+content-type: application/json
+
+{
+    "name": "carlton",
+    "email": "cheese2020@gmail.com",
+    "password": "25091999",
+    "isAmin": true
+}
+
+### Login User
+
+POST http://localhost:3000/api/v1/auth/login
+content-type: application/json
+
+{
+    "email": "cheese2020@gmail.com",
+    "password": "2509199"
+}
+
+### Logout User
+GET http://localhost:3000/api/v1/auth/logout
+
+### Edit Profile
+PUT  http://localhost:3000/api/v1/auth/profile
+Authorization: Bearer Content-Type: application/json
+
+{
+    "email": "cheese2020@gmail.com",
+    "name": "cleophas",
+    "password": "25091999"
+}
+
+### RESET PASSWORD
+PUT http://localhost:3000/api/v1/auth/reset-password
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTk2NjRkMGFhODA0YTFiZThkMWQyN2MiLCJpYXQiOjE3MDUwMDQ0MTMsImV4cCI6MTcwNzU5NjQxM30.ZExxWAeR_Pw8VGpoWcFSxvxOxlJtkURBrATGKw0iL9I",
+    "password": "123456"
+}
+
+
+### GET ALL USERS
+GET http://localhost:3000/api/v1/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTk2NjRkMGFhODA0YTFiZThkMWQyN2MiLCJpYXQiOjE3MDUwMDIxMjUsImV4cCI6MTcwNzU5NDEyNX0.rIeNDR4NBzvTPwSb8hxHx3VFJa4Pu9us4DUwQmj6Dp0
+
+### GET USER
+GET http://localhost:3000/api/v1/auth/659664d0aa804a1be8d1d27c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTk2NjRkMGFhODA0YTFiZThkMWQyN2MiLCJpYXQiOjE3MDUwMDIxMjUsImV4cCI6MTcwNzU5NDEyNX0.rIeNDR4NBzvTPwSb8hxHx3VFJa4Pu9us4DUwQmj6Dp0
+
+### GET UPDATE USER
+PUT http://localhost:3000/api/v1/auth/65966589aa804a1be8d1d27f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTk2NjRkMGFhODA0YTFiZThkMWQyN2MiLCJpYXQiOjE3MDUwMDIxMjUsImV4cCI6MTcwNzU5NDEyNX0.rIeNDR4NBzvTPwSb8hxHx3VFJa4Pu9us4DUwQmj6Dp0
+Content-Type: application/json
+
+{
+    "email": "cheese2020@gmail.com",
+    "password": "25091999",
+    "isAdmin": true
+}
+
+### DELETE USER
+DELETE  http://localhost:3000/api/v1/auth/65966589aa804a1be8d1d27f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTk2NjRkMGFhODA0YTFiZThkMWQyN2MiLCJpYXQiOjE3MDUwMDIxMjUsImV4cCI6MTcwNzU5NDEyNX0.rIeNDR4NBzvTPwSb8hxHx3VFJa4Pu9us4DUwQmj6Dp0
+
+
+
+
+
+// BLOG
+
+### GET ALL POSTS
+GET http://localhost:3000/api/v1/posts
+
+### GET SINGLE POST
+GET http://localhost:3000/api/v1/posts/65a5024c9f3a860b97376752
+
+### CREATE BLOG POST
+POST http://localhost:3000/api/v1/post
+Content-Type: application/json
+
+{
+    "title": "Red Wine",
+    "summary": "high quality red wine",
+    "content": "<h1>Wine</h1>",
+    "img": "/images/red-wine.png"
+}
+
+#### DELETE POST
+DELETE http://localhost:3000/api/v1/posts/659bf8bf716368b415d10405
+
+#### UPDATE POST
+PUT http://localhost:3000/api/v1/post/659006ddf41dcda603fef06c
+Content-Type: application/json
+
+{
+    "title": "How to make red wine from blueberries",
+    "summary": "Making red wine from blueberries is not easy as picking cherry tomatoes, but don't worries you have come to the right place"
+}
+
+
+### GET POST COMMENTS
+GET http://localhost:3000/api/v1/posts/comments/658e5421d8df7f46a5f40181
+
+### DELETE POST COMMENT
+DELETE  http://localhost:3000/api/v1/posts/comment/658fdda750c7b69c338315cd/658e5421d8df7f46a5f40181
+
+### POST COMMENT
+POST  http://localhost:3000/api/v1/posts/comment/658e5421d8df7f46a5f40181
+Content-Type: application/json
+
+{
+    "name": "Elton",
+    "comment": "we need more of this"
+}
+
+// Order Routes
+### GET ALL ORDERS
+GET http://localhost:3000/api/v1/orders
+
+### GET MY ORDERS
+GET http://localhost:3000/api/v1/orders/mine
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTk2NjRkMGFhODA0YTFiZThkMWQyN2MiLCJpYXQiOjE3MDUwMDIxMjUsImV4cCI6MTcwNzU5NDEyNX0.rIeNDR4NBzvTPwSb8hxHx3VFJa4Pu9us4DUwQmj6Dp0
+
+### CREATE ORDER
+POST http://localhost:3000/api/v1/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTk2NjRkMGFhODA0YTFiZThkMWQyN2MiLCJpYXQiOjE3MDUwMDIxMjUsImV4cCI6MTcwNzU5NDEyNX0.rIeNDR4NBzvTPwSb8hxHx3VFJa4Pu9us4DUwQmj6Dp0
+Content-Type: application/json
+
+{
+    "shippingAddress": {
+      "name": "cheese chiunye",
+      "address": "3720 old-HIghfield",
+      "city": "Harare",
+      "postalCode": "0000",
+      "country": "ZW"
+    },
+    "orderItems": [
+      {
+        "slug": "blue-gin",
+        "productName": "blue gin",
+        "quantity": 1,
+        "imgUrl": "uploads\\9cdd2f110c4354dee2c24cc1d41e25ff.png",
+        "price": 10,
+        "product": "659be984ccd3fbd0be2d14d0",
+        "_id": "659be984ccd3fbd0be2d14d0"
+      },
+      {
+        "slug": "oak-barrel-whiskey",
+        "productName": "Whiskey",
+        "quantity": 1,
+        "imgUrl": "uploads\\2e1055d4b3f4ac9cec6fa4c1649031a5.png",
+        "price": 25,
+        "product": "6596b9a6239ebcbf94df74ce",
+        "_id": "6596b9a6239ebcbf94df74ce"
+      }
+    ],
+    "paymentMethod": "PayPal",
+    "itemsPrice": 35,
+    "shippingPrice": 10,
+    "taxPrice": 1.75,
+    "totalPrice": 46.75
+  }
+
+
+### GET DELETE ORDER
+DELETE  http://localhost:3000/api/v1/orders/659ec004fb9df2d3c3f6eb68
+### GET ALL ORDERS
+GET http://localhost:3000/api/v1/orders/
+
+
+
+
+
+
+
+
+
+
+
+

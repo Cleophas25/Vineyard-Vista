@@ -8,33 +8,33 @@ import { useAppContext } from "../context/appContext";
 import { getError } from "../ultils";
 
 const reducer = (state, action) => {
-   switch (action.type) {
-     case "FETCH_REQUEST":
-       return { ...state, loading: true };
-     case "FETCH_SUCCESS":
-       return {
-         ...state,
-         products: action.payload,
-         loading: false,
-       };
-     case "FETCH_FAIL":
-       return { ...state, loading: false, error: action.payload };
-     case "DELETE_REQUEST":
-       return { ...state, loadingDelete: true, successDelete: false };
-     case "DELETE_SUCCESS":
-       return {
-         ...state,
-         loadingDelete: false,
-         successDelete: true,
-       };
-     case "DELETE_FAIL":
-       return { ...state, loadingDelete: false };
-     case "DELETE_RESET":
-       return { ...state, loadingDelete: false, successDelete: false };
-     default:
-       return state;
-   }
-}
+  switch (action.type) {
+    case "FETCH_REQUEST":
+      return { ...state, loading: true };
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        products: action.payload,
+        loading: false,
+      };
+    case "FETCH_FAIL":
+      return { ...state, loading: false, error: action.payload };
+    case "DELETE_REQUEST":
+      return { ...state, loadingDelete: true, successDelete: false };
+    case "DELETE_SUCCESS":
+      return {
+        ...state,
+        loadingDelete: false,
+        successDelete: true,
+      };
+    case "DELETE_FAIL":
+      return { ...state, loadingDelete: false };
+    case "DELETE_RESET":
+      return { ...state, loadingDelete: false, successDelete: false };
+    default:
+      return state;
+  }
+};
 
 const Products = () => {
   const { user } = useAppContext();
@@ -43,23 +43,23 @@ const Products = () => {
       loading: true,
       error: "",
     });
-    const navigate = useNavigate();
- useEffect(() => {
-   if (!user) {
-     return navigate("/register");
-   }
-   if (user.isAdmin === false) {
-     navigate("/");
-     return;
-   }
- }, [user, navigate]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) {
+      return navigate("/register");
+    }
+    if (user.isAdmin === false) {
+      navigate("/");
+      return;
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(
-          `https://vineyard-vista.onrender.com/api/v1/products`,
+          `http://localhost:3000/api/v1/products`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }
@@ -79,26 +79,26 @@ const Products = () => {
     }
   }, [user, successDelete]);
 
-const deleteProduct = async (id) => {
-  if (window.confirm("Are you sure to delete?")) {
-    try {
-      dispatch({ type: "DELETE_REQUEST" });
-      await axios.delete(
-        `https://vineyard-vista.onrender.com/api/v1/products/${id}`,
-        {
-          headers: { Authorization: `Bearer ${user.token}` },
-        }
-      );
-      toast.success("order deleted successfully");
-      dispatch({ type: "DELETE_SUCCESS" });
-    } catch (err) {
-      toast.error(getError(error));
-      dispatch({
-        type: "DELETE_FAIL",
-      });
+  const deleteProduct = async (id) => {
+    if (window.confirm("Are you sure to delete?")) {
+      try {
+        dispatch({ type: "DELETE_REQUEST" });
+        await axios.delete(
+          `https://vineyard-vista.onrender.com/api/v1/products/${id}`,
+          {
+            headers: { Authorization: `Bearer ${user.token}` },
+          }
+        );
+        toast.success("order deleted successfully");
+        dispatch({ type: "DELETE_SUCCESS" });
+      } catch (err) {
+        toast.error(getError(error));
+        dispatch({
+          type: "DELETE_FAIL",
+        });
+      }
     }
-  }
-};
+  };
   return (
     <div>
       <h1 className='text-3xl font-semibold text-gray-700 mb-2'>Products</h1>

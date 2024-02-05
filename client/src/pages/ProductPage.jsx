@@ -55,9 +55,9 @@ const ProductPage = () => {
   return (
     <div className='h-[calc(100vh-68px)] container w-[90vw] mx-auto my-5'>
       {isloading ? (
-        <Spinner/>
+        <Spinner />
       ) : error ? (
-        toast.error(error)
+        <div className='text-3xl text-gray-700 text-center'>{error}</div>
       ) : (
         <div className='flex flex-row  my-5 gap-4 w-full items-start h-[20rem] md:h-[30rem]'>
           <div className='w-1/2 md:w-2/3 border border-gray-300 rounded-md p-1 h-1/2 sm:h-full'>
@@ -119,7 +119,10 @@ const ProductPage = () => {
                   <BsCart4 className='text-xl text-white cursor-pointer' />
                 </span>
               </button>
-              <Link to='/shippingAddress' className='text-white bg-black p-1 rounded-md w-full hover:bg-black capitalize'>
+              <Link
+                to='/shippingAddress'
+                className='text-white bg-black p-1 rounded-md w-full hover:bg-black capitalize'
+              >
                 buy now
               </Link>
             </div>

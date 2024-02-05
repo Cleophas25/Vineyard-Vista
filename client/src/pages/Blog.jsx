@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../components/Spinner.jsx";
-import Post from "../components/post";
+import Post from "../components/Post.jsx";
 import {
   FaArrowLeft,
   FaArrowRight,

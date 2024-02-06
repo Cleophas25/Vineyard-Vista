@@ -44,10 +44,7 @@ const AdminDashboard = () => {
         <nav className='text-white text-base font-semibold pt-3'>
           <Link
             to='/adminDashboard/stats'
-            className={`${
-              isActive === "dashboard" ? "opacity-100" : ""
-            } flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer`}
-            onClick={() => setIsActive("dashboard")}
+            className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer'
           >
             <FaTachometerAlt className='mr-3' />
             Dashboard
@@ -61,30 +58,21 @@ const AdminDashboard = () => {
           </Link>
           <Link
             to='/Admindashboard/products'
-            className={`${
-              isActive === "products" && "opacity-100"
-            } flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer`}
-            onClick={() => setIsActive("products")}
+            className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer'
           >
-            <FaBriefcase className='mr-3' />
+            <FaBriefcase className='mr-3 text-white' />
             Products
           </Link>
           <Link
             to='/Admindashboard/posts'
-            className={`${
-              isActive === "posts" && "opacity-100"
-            } flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer`}
-            onClick={() => setIsActive("posts")}
+            className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer'
           >
             <FaTable className='mr-3' />
             Posts
           </Link>
           <Link
             to='/Admindashboard/users'
-            className={`${
-              isActive === "users" && "opacity-100"
-            } flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer`}
-            onClick={() => setIsActive("users")}
+            className='flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer'
           >
             <FaUserCircle className='mr-3' />
             Users
@@ -94,7 +82,6 @@ const AdminDashboard = () => {
             className={`${
               isActive === "orders" && "opacity-100"
             } flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 cursor-pointer`}
-            onClick={() => setIsActive("orders")}
           >
             <FaShoppingBag className='mr-3' />
             Orders
@@ -108,7 +95,7 @@ const AdminDashboard = () => {
             to='/'
             className='text-lg md:text-2xl font-bold self-center text-gray-800 hover:text-gray-600'
           >
-            Vineyard Vista
+            The Palate Portfolio
           </Link>
           <div className='relative flex justify-end ml-auto'>
             <button
@@ -171,6 +158,7 @@ const AdminDashboard = () => {
             <Link
               to='/adminDashboard/statics'
               className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
+              onClick={() => setIsMobileNavlinksOpen(false)}
             >
               <FaTachometerAlt className='mr-3' />
               Dashboard
@@ -178,6 +166,7 @@ const AdminDashboard = () => {
             <Link
               to='/'
               className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
+              onClick={() => setIsMobileNavlinksOpen(false)}
             >
               <FaHome className='mr-3' />
               Home
@@ -185,7 +174,8 @@ const AdminDashboard = () => {
 
             <Link
               to='/Admindashboard/products'
-              className='flex items-center text-white py-4 pl-6 nav-item cursor-pointer'
+              className='flex items-center py-4 pl-4 nav-item cursor-pointer'
+              onClick={() => setIsMobileNavlinksOpen(false)}
             >
               <FaBriefcase className='mr-3' />
               Products
@@ -194,6 +184,7 @@ const AdminDashboard = () => {
             <Link
               to='/Admindashboard/posts'
               className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
+              onClick={() => setIsMobileNavlinksOpen(false)}
             >
               <FaTable className='mr-3' />
               Posts
@@ -201,6 +192,7 @@ const AdminDashboard = () => {
             <Link
               to='/Admindashboard/users'
               className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
+              onClick={() => setIsMobileNavlinksOpen(false)}
             >
               <FaUserCircle className='mr-3' />
               Users
@@ -208,6 +200,7 @@ const AdminDashboard = () => {
             <Link
               to='/Admindashboard/orders'
               className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
+              onClick={() => setIsMobileNavlinksOpen(false)}
             >
               <FaShoppingBag className='mr-3' />
               Orders

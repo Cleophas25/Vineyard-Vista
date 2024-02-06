@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../context/appContext";
-import { FaChevronDown, FaHome, FaInfoCircle, FaPhoneAlt, FaShoppingBag, FaTimes} from "react-icons/fa";
+import { FaBlog, FaChevronDown, FaHome, FaInfoCircle, FaPhoneAlt, FaShoppingBag, FaTimes} from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsCart4 } from "react-icons/bs";
 
@@ -170,6 +170,14 @@ const Navbar = () => {
           >
             <FaInfoCircle className='mr-3' />
             About
+          </Link>
+          <Link
+            to='/blog'
+            className='pl-4 flex items-center py-4 nav-item cursor-pointer'
+            onClick={() => setToggleMenu(false)}
+          >
+            <FaBlog className='mr-3' />
+            Blog
           </Link>
           <Link
             to='/'

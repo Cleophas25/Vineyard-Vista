@@ -30,6 +30,8 @@ const Shop = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 
+  console.log(isLoading)
+
   useEffect(() => {
     getAllProducts();
   }, [isChanged]);
@@ -46,7 +48,7 @@ const Shop = () => {
     <>
       <div className='h-[calc(100vh - 750px)]'>
         <div className='bg-white relative'>
-          <div className='container mx-auto px-6 py-3'>
+          <div className='container mx-auto px-6 py-3 sticky top-5 pt-12 pb-4 z-20 bg-white'>
             <div className='flex items-center justify-between'>
               <div className='hidden w-full text-gray-600 md:flex md:items-center'>
                 <svg
@@ -73,10 +75,10 @@ const Shop = () => {
               <div className='w-full text-gray-700 md:text-center text-2xl font-semibold'>
                 Categories
               </div>
-              <div className='flex items-center justify-end w-full'>
+              <div className='flex items-center justify-end w-full gap-3'>
                 <button
                   onClick={() => setIsCartOpen(!isCartOpen)}
-                  className='text-gray-600 focus:outline-none mx-4 sm:mx-0'
+                  className='relative text-gray-600 focus:outline-none mx-4 sm:mx-0'
                 >
                   <svg
                     className='h-5 w-5'
@@ -89,6 +91,11 @@ const Shop = () => {
                   >
                     <path d='M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'></path>
                   </svg>
+                  {cart?.cartItems?.length !== 0 ? (
+                    <span className='absolute flex items-center justify-center bg-orange-500 h-4 w-4 rounded-full text-sm text-center text-white -bottom-2 -right-3'>
+                      {cart?.quantity}
+                    </span>
+                  ) : null}
                 </button>
 
                 <div className='flex sm:hidden'>
@@ -320,7 +327,13 @@ const Shop = () => {
                 {products.length} Product{products.length > 1 ? "s" : ""}
               </span>
               <div className='grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6'>
-                { isLoading ? (<Spinner/>) : error ? (<div className='text-gray-600 text-2xl text-center'>{error}</div>): products.length > 0 ? (
+                {isLoading ? (
+                  <Spinner />
+                ) : error ? (
+                  <div className='text-gray-600 text-2xl text-center'>
+                    {error}
+                  </div>
+                ) : products.length > 0 ? (
                   products.map((product) => {
                     return <ProductCard key={product._id} product={product} />;
                   })
@@ -334,9 +347,10 @@ const Shop = () => {
                 <div className='flex rounded-md mt-8'>
                   {currentPage > 1 && (
                     <span
-                      onClick={()=>{
-                      handlePrev()
-                      scrollToTop();}}
+                      onClick={() => {
+                        handlePrev();
+                        scrollToTop();
+                      }}
                       className='h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center mr-3 cursor-pointer'
                     >
                       <FaArrowLeft /> Prev
@@ -349,8 +363,10 @@ const Shop = () => {
                     return (
                       <button
                         key={page}
-                        onClick={() => {handlePageChange(page) 
-                          scrollToTop()}}
+                        onClick={() => {
+                          handlePageChange(page);
+                          scrollToTop();
+                        }}
                         className={`${
                           page === parseInt(currentPage) && "bg-blue-800"
                         } h-10 w-10 hover:bg-blue-600 font-semibold text-sm flex items-center justify-center`}
@@ -362,9 +378,10 @@ const Shop = () => {
                   {currentPage < totalPages && (
                     <span
                       className='h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3 cursor-pointer'
-                      onClick={()=>{
-                      handleNext()
-                      scrollToTop()}}
+                      onClick={() => {
+                        handleNext();
+                        scrollToTop();
+                      }}
                     >
                       Next <FaArrowRight />
                     </span>

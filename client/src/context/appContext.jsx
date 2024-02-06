@@ -133,10 +133,9 @@ const AppProvider = ({ children }) => {
     if (searchTerm) {
       url = url + `&search=${searchTerm}`;
     }
-    dispatch({ SETUP_PRODUCTS_BEGIN });
+    dispatch({type: SETUP_PRODUCTS_BEGIN });
     try {
       const response = await axios.get(url);
-      
       const { products, totalPages } = response.data
       dispatch({
         type: SETUP_PRODUCTS_SUCCESS,
@@ -149,7 +148,7 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: SETUP_PRODUCTS_ERROR,
-        payload: "There was an error, please try again",
+        payload: error.message,
       });
     }
   };

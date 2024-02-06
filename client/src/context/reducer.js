@@ -67,7 +67,7 @@ const reducer = (state, action) => {
   if (action.type === SETUP_PRODUCTS_ERROR) {
     return {
       ...state,
-      isloading: false,
+      isLoading: false,
       error: action.payload,
     };
   }

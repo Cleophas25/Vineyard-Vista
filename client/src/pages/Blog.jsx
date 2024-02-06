@@ -17,15 +17,16 @@ const Blog = () => {
   const [isChanged, setIsChanged] = useState(false)
   useEffect(() => {
     const getPosts = async () => {
-      setIsLoading(false);
+      setIsLoading(true);
       try {
         const result = await axios(
           `https://vineyard-vista.onrender.com/api/v1/posts?page=${currentPage}`
         );
+        setIsLoading(false);
         setPosts(result.data.posts);
-        console.log(result)
         setTotalPages(result.data.numOfPage);
       } catch (error) {
+        setIsLoading(false)
         setError(error.message);
         console.log(error)
       }

@@ -55,12 +55,14 @@ const reducer = (state, action) => {
     return {
       ...state,
       isLoading: true,
+      error: ''
     };
   }
   if (action.type === SETUP_PRODUCTS_SUCCESS) {
     return {
       ...state,
       isLoading: false,
+      error: '',
       products: action.payload,
     };
   }

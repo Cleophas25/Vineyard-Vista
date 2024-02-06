@@ -4,9 +4,12 @@ import ProductCard from "../components/ProductCard";
 import { useAppContext } from "../context/appContext";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Spinner from "../components/Spinner";
 
 const Shop = () => {
   const {
+    error,
+    isLoading,
     isChanged,
     products,
     cart,
@@ -317,7 +320,7 @@ const Shop = () => {
                 {products.length} Product{products.length > 1 ? "s" : ""}
               </span>
               <div className='grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6'>
-                {products.length > 0 ? (
+                { isLoading ? (<Spinner/>) : error ? (<div className='text-gray-600 text-2xl text-center'>{error}</div>): products.length > 0 ? (
                   products.map((product) => {
                     return <ProductCard key={product._id} product={product} />;
                   })

@@ -48,7 +48,7 @@ const Navbar = () => {
 
       <div>
         <Link to='/' className='text-lg md:text-2xl font-bold text-gray-300'>
-          Vineyard Vista
+          The Palate Portfolio
         </Link>
       </div>
       <ul className='hidden md:flex items-center justify-between'>

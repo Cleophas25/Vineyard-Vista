@@ -14,7 +14,7 @@ const reducer = (state, action) => {
     case "CREATE_SUCCESS":
       return { ...state, loading: false };
     case "CREATE_FAIL":
-      return { ...state, loading: false };
+      return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }
@@ -22,8 +22,9 @@ const reducer = (state, action) => {
 
 const PlaceOrder = () => {
   const { user, cart, dereaseCartItem, increaseCartItem, clearCart } = useAppContext();
-  const [{ loading }, dispatch] = useReducer(reducer, {
+  const [{ loading, error }, dispatch] = useReducer(reducer, {
     loading: false,
+    error: ''
   });
   if(!cart.cartItems) {
     toast.error("You haven't seletect Items to order")
@@ -68,9 +69,9 @@ const PlaceOrder = () => {
       clearCart()
       toast.success(data.message)
       navigate(`/order/${data.newOrder._id}`);
-    } catch (err) {
-      dispatch({ type: 'CREATE_FAIL' });
-      toast.error(getError(err.message));
+    } catch (error) {
+      dispatch({ type: 'CREATE_FAIL' , payload: error.message});
+      toast.error('There was an error, please try again');
     }
   }
 
@@ -224,10 +225,10 @@ const PlaceOrder = () => {
           <button
              onClick={placeOrder}
             className='flex justify-center bg-gray-700 rounded-md cursor-pointer hover:bg-gray-600 w-full mb-2 text-white p-2'
+            disabled={loading}
           >
-           Place Order
+           {loading ? 'Processing...' : 'Place Order'}
           </button>
-            { loading ? <Spinner/> : null }
         </div>
       </div>
     </div>

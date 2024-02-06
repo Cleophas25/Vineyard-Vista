@@ -71,9 +71,9 @@ const ShippingAddress = () => {
   return (
     <div className='w-[90vw] mx-auto my-5'>
       <div className='container px-4 sm:px-8'>
-        <div className='min-h-[calc(100vh-68px)] grid'>
-          <div className=' bg-indigo-50 space-y-8 px-12 pb-4'>
-            <div className='mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-md'>
+        <div className='min-h-[calc(100vh-68px)]'>
+          <div className=' bg-indigo-50 px-2 py-1 sm:py-4 sm:px-12'>
+            <div className='mt-4 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-md'>
               <div className='flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0'>
                 <div className='text-yellow-500'>
                   <svg
@@ -99,17 +99,19 @@ const ShippingAddress = () => {
               <div className='absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-gray-400 hover:text-gray-800 cursor-pointer'></div>
             </div>
             <div className='rounded-md'>
-              <form onSubmit={handleSubmit}>
+              <form
+                onSubmit={handleSubmit}
+              >
                 <section>
                   <h2 className='uppercase tracking-wide text-lg font-semibold text-gray-700 my-2'>
                     Shipping & Billing Information
                   </h2>
-                  <fieldset className='mb-3 bg-white shadow-lg rounded text-gray-600'>
+                  <div className='mb-3 bg-white shadow-lg rounded text-gray-600'>
                     <label className='flex border-b border-gray-200 h-12 py-3 items-center'>
                       <span className='text-right px-2'>Name</span>
                       <input
                         name='name'
-                        className='focus:outline-none px-3'
+                        className='focus:outline-none px-3 w-full'
                         placeholder='Carlton Chiunye'
                         value={values.name}
                         onChange={handleChange}
@@ -121,7 +123,7 @@ const ShippingAddress = () => {
                         name='email'
                         type='email'
                         value={values.email}
-                        className='focus:outline-none px-3'
+                        className='focus:outline-none px-3 w-full'
                         placeholder='example@gmail.com'
                         onChange={handleChange}
                       />
@@ -131,7 +133,7 @@ const ShippingAddress = () => {
                       <input
                         name='address'
                         value={values.address}
-                        className='focus:outline-none px-3'
+                        className='focus:outline-none px-3 w-full'
                         placeholder='Your Address'
                         onChange={handleChange}
                       />
@@ -141,7 +143,7 @@ const ShippingAddress = () => {
                       <input
                         name='city'
                         value={values.city}
-                        className='focus:outline-none px-3'
+                        className='focus:outline-none px-3 w-full'
                         placeholder='Harare'
                         onChange={handleChange}
                       />
@@ -151,7 +153,7 @@ const ShippingAddress = () => {
                       <input
                         name='postalCode'
                         value={values.postalCode}
-                        className='focus:outline-none px-3'
+                        className='focus:outline-none px-3 w-full'
                         placeholder='98603'
                         onChange={handleChange}
                       />
@@ -194,7 +196,7 @@ const ShippingAddress = () => {
                         </select>
                       </div>
                     </label>
-                  </fieldset>
+                  </div>
                 </section>
               </form>
             </div>
@@ -246,7 +248,7 @@ const ShippingAddress = () => {
               </section>
             </div>
             <button
-              className='submit-button px-4 py-3 rounded-full bg-gray-700 text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors'
+              className='submit-button px-4 py-3 rounded-full bg-gray-700 text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors mt-4'
               type='submit'
               onClick={handleSubmit}
             >

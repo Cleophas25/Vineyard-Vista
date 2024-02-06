@@ -36,12 +36,12 @@ const Header = () => {
         );
       })}
       <div className='flex flex-col md:block items-center justify-center z-10 backdrop-brightness-50 h-full w-full p-16'>
-        <SubHeading title='Vineyard Vista' /> 
+        <SubHeading title='The Palate Portfolio' /> 
         <h1 className='app__header-h1'>
           Artisan Winery <br />
           Experience
         </h1>
-        <p className='p__opensans' style={{ margin: "2rem 0" }}>
+        <p className='p__opensans text-center' style={{ margin: "2rem 0" }}>
           Sit tellus lobortis sed senectus vivamus molestie. Condimentum
           volutpat morbi facilisis quam scelerisque sapien. Et, penatibus
           aliquam amet tellus

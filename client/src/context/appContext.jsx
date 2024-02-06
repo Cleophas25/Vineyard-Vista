@@ -33,6 +33,7 @@ import {
 const initialState = {
   userLoading: true,
   isLoading: false,
+  error: '',
   user: localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : null,

@@ -22,7 +22,7 @@ const Ceo = () => (
       </div>
 
       <div className="app__chef-sign">
-        <p>Carlton Chiunye</p>
+        <p>Taps Shinya</p>
         <p className="p__opensans">CEO & Founder</p>
       </div>
     </div>

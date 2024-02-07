@@ -41,7 +41,7 @@ const Header = () => {
           Artisan Winery <br />
           Experience
         </h1>
-        <p className='p__opensans text-center' style={{ margin: "2rem 0" }}>
+        <p className='p__opensans text-center md:text-left' style={{ margin: "2rem 0" }}>
           Sit tellus lobortis sed senectus vivamus molestie. Condimentum
           volutpat morbi facilisis quam scelerisque sapien. Et, penatibus
           aliquam amet tellus

@@ -56,7 +56,7 @@ const initialState = {
   selectedCategory: "all",
   totalPages: 1,
   currentPage: 1,
-  isChanged: true,
+  isChanged: false,
 };
 
 const AppContext = React.createContext();
@@ -152,6 +152,10 @@ const AppProvider = ({ children }) => {
       });
     }
   };
+
+  useEffect(() => {
+   getAllProducts()
+  }, [])
 
   const handleSearchChange = (e) => {
     dispatch({type: SET_SEARCHTERM, payload: e.target.value})

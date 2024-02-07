@@ -29,9 +29,6 @@ const Shop = () => {
   const [query, setQuery] = useState("");
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
-
-  console.log(isLoading)
-
   useEffect(() => {
     getAllProducts();
   }, [isChanged]);

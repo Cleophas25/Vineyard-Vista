@@ -68,7 +68,7 @@ const PlaceOrder = () => {
       localStorage.removeItem('cartItems');
       clearCart()
       toast.success(data.message)
-      navigate(`/order/${data.newOrder._id}`);
+      navigate(`/profile`);
     } catch (error) {
       dispatch({ type: 'CREATE_FAIL' , payload: error.message});
       toast.error('There was an error, please try again');

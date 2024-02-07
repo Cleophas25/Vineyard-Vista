@@ -35,7 +35,7 @@ const AdminDashboard = () => {
       <aside className='relative bg-gray-700 h-screen w-64 hidden sm:block shadow-xl'>
         <div className='p-6'>
           <Link
-            to='/adminDashboard'
+            to='/adminDashboard/stats'
             className='text-white text-3xl font-semibold uppercase hover:text-gray-300 cursor-pointer'
           >
             Admin
@@ -132,8 +132,9 @@ const AdminDashboard = () => {
         <header className='w-full bg-black py-5 px-6 sm:hidden'>
           <div className='flex items-center justify-between'>
             <Link
-              to='/adminDashboard'
+              to='/adminDashboard/stats'
               className='text-white text-3xl font-semibold uppercase hover:text-gray-300'
+              onClick={() => setIsMobileNavlinksOpen(false)}
             >
               Admin
             </Link>
@@ -156,7 +157,7 @@ const AdminDashboard = () => {
               onClick={() => setIsMobileNavlinksOpen(!isMobileNavlinksOpen)}
             />
             <Link
-              to='/adminDashboard/statics'
+              to='/adminDashboard/stats'
               className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
               onClick={() => setIsMobileNavlinksOpen(false)}
             >
@@ -174,13 +175,12 @@ const AdminDashboard = () => {
 
             <Link
               to='/Admindashboard/products'
-              className='flex items-center py-4 pl-4 nav-item cursor-pointer'
+              className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'
               onClick={() => setIsMobileNavlinksOpen(false)}
             >
               <FaBriefcase className='mr-3' />
               Products
             </Link>
-
             <Link
               to='/Admindashboard/posts'
               className='flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item'

@@ -34,11 +34,17 @@ const Shop = () => {
   }, [isChanged]);
 
    useEffect(() => {
-     window.scrollTo(0, 0);
+     scrollToTop();
+     return () => {
+       window.removeEventListener("scroll", scrollToTop);
+     };
    }, []);
 
    const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
    }
 
   return (

@@ -104,7 +104,7 @@ const Stats = () => {
       try {
         dispatch({ type: "DELETE_REQUEST" });
         await axios.delete(
-          `https://vineyard-vista.onrender.com/api/api/v1/orders/${order._id}`,
+          `https://vineyard-vista.onrender.com/api/v1/orders/${order._id}`,
           {
             headers: { Authorization: `Bearer ${user.token}` },
           }

@@ -35,23 +35,32 @@ const Blog = () => {
   }, [currentPage]);
 
 
-  useEffect(()=> {
-    window.scrollTo(0,0)
-  }, [])
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+  };
+  useEffect(() => {
+    scrollToTop();
+    return () => {
+      window.removeEventListener("scroll", scrollToTop);
+    };
+  }, []);
 
   const handlePageChange = (page) => {
     setCurrentPage(page)
     setIsChanged(!isChanged)
     setTimeout(() => {
-      window.scrollTo(0, 0);
+     scrollToTop();
     }, 0);
   }
 
   const handleNext = () => {
     setCurrentPage(currentPage + 1);
     setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
+     scrollToTop();
+    }, 0);
   }
   const handlePrev = () => {
     setCurrentPage(currentPage - 1);
@@ -76,8 +85,8 @@ const Blog = () => {
               <p>No Posts</p>
             </div>
           )}
-          <div className='flex justify-center'>
-            <div className='flex rounded-md mt-8'>
+          <div className='flex justify-center mt-8 border z-50'>
+            <div className='flex rounded-md'>
               {currentPage > 1 && (
                 <span
                   onClick={handlePrev}

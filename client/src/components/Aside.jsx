@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Aside = () => {
   return (
-    <aside className='w-full md:w-1/3 flex flex-col items-center px-3 sticky top-5 md:max-h-screen pt-12 pb-4 -mt-12 mb-20 border'>
+    <aside className='w-full md:w-1/3 flex flex-col items-center px-3 sticky top-5 md:max-h-screen pt-12 pb-4 -mt-12 mb-20'>
       <div className='w-full bg-white shadow flex flex-col my-4 p-6'>
         <p className='text-xl font-semibold pb-5'>About Us</p>
         <p className='pb-2'>

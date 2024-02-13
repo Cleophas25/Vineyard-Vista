@@ -153,10 +153,6 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-   getAllProducts()
-  }, [])
-
   const handleSearchChange = (e) => {
     dispatch({type: SET_SEARCHTERM, payload: e.target.value})
   }
@@ -222,6 +218,8 @@ const AppProvider = ({ children }) => {
     dispatch({type: HANDLE_PAYMENT_METHOD, payload: paymentMethod})
     localStorage.setItem("paymentMethod", paymentMethod);
   };
+
+  console.log(state.products)
 
   return (
     <AppContext.Provider

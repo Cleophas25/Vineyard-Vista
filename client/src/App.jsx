@@ -29,8 +29,14 @@ import EditUser from "./pages/EditUser";
 import Stats from "./pages/Stats";
 import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
+import { useAppContext } from "./context/appContext";
+import { useEffect } from "react";
 
 function App() {
+  const { getAllProducts } = useAppContext()
+  useEffect(() => {
+    getAllProducts();
+  }, []);
   return (
     <div>
       <ToastContainer position='top-center' limit={2} autoClose={"2000"} />

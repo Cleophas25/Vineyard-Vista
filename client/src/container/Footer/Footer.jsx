@@ -28,7 +28,7 @@ const Footer = () => {
             &quot;The best way to find yourself is to lose yourself in the
             service of others.&quot;
           </p>
-          <div className='flex app__footer-links_icons items-center'>
+          <div className='flex app__footer-links_icons items-center w-full justify-center'>
             <FiFacebook />
             <FiTwitter />
             <FiInstagram />

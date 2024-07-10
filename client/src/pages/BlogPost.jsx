@@ -178,39 +178,39 @@ const BlogPost = () => {
                             </time>
                           </p>
                         </div>
-                       {user && user?.isAdmin ? <div className='relative flex items-center gap-1 mr-4 curser-pointer font-semibold capitalize text-md'>
-                          <BsThreeDots
-                            className='cursor-pointer'
-                            onClick={() => {
-                              handleIsDropDownOpen(index);
-                            }}
-                          />
-                          <div
-                            id='dropdown'
-                            className={` ${
-                              activeIndex === index ? "absolute" : "hidden"
-                            } absolute py-2 mt-32 z-10 bg-white divide-gray-100 rounded-lg shadow w-full min-w-[7rem] dark:bg-gray-700`}
-                          >
-                            <ul
-                              className='py-2 text-sm text-gray-700 dark:text-gray-200'
-                              aria-labelledby='dropdownDefaultButton'
+                        {user && user?.isAdmin ? (
+                          <div className='relative flex items-center gap-1 mr-4 curser-pointer font-semibold capitalize text-md'>
+                            <BsThreeDots
+                              className='cursor-pointer'
+                              onClick={() => {
+                                handleIsDropDownOpen(index);
+                              }}
+                            />
+                            <div
+                              id='dropdown'
+                              className={` ${
+                                activeIndex === index ? "absolute" : "hidden"
+                              } absolute py-2 mt-32 z-10 bg-white divide-gray-100 rounded-lg shadow w-full min-w-[7rem] dark:bg-gray-700`}
                             >
-                              
-
-                              <li>
+                              <ul
+                                className='py-2 text-sm text-gray-700 dark:text-gray-200'
+                                aria-labelledby='dropdownDefaultButton'
+                              >
+                                <li>
                                   <button
                                     className='w-full block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
                                     onClick={() => {
                                       handleIsDropDownOpen(index);
-                                      handleDeleteComment(comment._id)
+                                      handleDeleteComment(comment._id);
                                     }}
                                   >
                                     delete
                                   </button>
-                              </li>
-                            </ul>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div> : null}
+                        ) : null}
                       </div>
                     </footer>
                     <p>{comment.comment}</p>
@@ -219,9 +219,7 @@ const BlogPost = () => {
               })
             ) : (
               <div className='p-6 mb-6 text-base bg-white border-t border-gray-200'>
-                <p className='text-gray-600'>
-                  Be the first one to comment
-                </p>
+                <p className='text-gray-600'>Be the first one to comment</p>
               </div>
             )}
 
@@ -277,8 +275,8 @@ const BlogPost = () => {
             <div className='flex-1 flex flex-col justify-center md:justify-start'>
               <p className='font-semibold text-2xl'>Taps</p>
               <p className='pt-2'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur vel neque non libero suscipit suscipit eu eu urna.
+                Each bottle tells a story of our pursuit of winemaking
+                excellence."
               </p>
               <div className='flex items-center justify-center md:justify-start text-2xl no-underline text-black pt-4'>
                 <a className='' href='#'>

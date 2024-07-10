@@ -15,9 +15,9 @@ const Footer = () => {
       <div className='app__footer-links'>
         <div className='app__footer-links_contact'>
           <h1 className='app__footer-headtext'>Contact Us</h1>
-          <p className='p__opensans'>3720 Old-Highfield, Harare, Zimbabwe</p>
-          <p className='p__opensans'>+263 777 724 623</p>
-          <p className='p__opensans'>+263 772 702 981</p>
+          <p className='p__opensans'>69 Rossal park Greendale, Harare</p>
+          <p className='p__opensans'>+263 77 269 1169</p>
+          <p className='p__opensans'>+263 71 770 2233</p>
         </div>
 
         <div className='app__footer-links_logo'>
@@ -28,12 +28,7 @@ const Footer = () => {
             &quot;The best way to find yourself is to lose yourself in the
             service of others.&quot;
           </p>
-          <img
-            src={images.spoon}
-            className='spoon__img'
-            style={{ marginTop: 15 }}
-          />
-          <div className=' flex app__footer-links_icons'>
+          <div className='flex app__footer-links_icons items-center'>
             <FiFacebook />
             <FiTwitter />
             <FiInstagram />

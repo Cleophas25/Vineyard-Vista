@@ -36,15 +36,17 @@ const Header = () => {
         );
       })}
       <div className='flex flex-col md:block items-center justify-center z-10 backdrop-brightness-50 h-full w-full p-16'>
-        <SubHeading title='The Palate Portfolio' /> 
+        <SubHeading title='The Palate Portfolio' />
         <h1 className='app__header-h1'>
           Artisan Winery <br />
           Experience
         </h1>
-        <p className='p__opensans text-center md:text-left' style={{ margin: "2rem 0" }}>
-          Sit tellus lobortis sed senectus vivamus molestie. Condimentum
-          volutpat morbi facilisis quam scelerisque sapien. Et, penatibus
-          aliquam amet tellus
+        <p
+          className='p__opensans text-center md:text-left'
+          style={{ margin: "2rem 0" }}
+        >
+          Discover the art of winemaking at our state-of-the-art winery, where
+          quality, tradition, and innovation come together in every glass.
         </p>
         <a href='/#about' type='button' className='custom__button'>
           Explore more

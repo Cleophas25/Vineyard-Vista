@@ -18,9 +18,9 @@ const AboutUs = () => (
         <h1 className='headtext__cormorant'>About Us</h1>
         <img src={images.spoon} alt='about_spoon' className='spoon__img' />
         <p className='p__opensans'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra
-          adipiscing ultrices vulputate posuere tristique. In sed odio nec
-          aliquet eu proin mauris et.
+          At our family-owned winery, we take pride in crafting exceptional
+          wines that capture the essence of our region's terroir. Join us for an
+          unforgettable tasting experience.
         </p>
         <Link to='/about' type='button' className='custom__button'>
           Know More
@@ -33,9 +33,9 @@ const AboutUs = () => (
         <h1 className='headtext__cormorant'>Our History</h1>
         <img src={images.spoon} alt='about_spoon' className='spoon__img' />
         <p className='p__opensans'>
-          Adipiscing tempus ullamcorper lobortis odio tellus arcu volutpat.
-          Risus placerat morbi volutpat habitasse interdum mi aliquam In sed
-          odio nec aliquet.
+          Rooted in over a century of winemaking tradition, our winery has
+          evolved from humble beginnings to become a renowned producer of
+          award-winning, terroir-driven wines.
         </p>
         <Link to='/about' type='button' className='custom__button'>
           Know More
